@@ -1,3 +1,4 @@
+import sys
 import json
 import os
 import random
@@ -76,7 +77,10 @@ def setup(config):
         json.dump(info, f)
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Expected comand: python ./scripts/main.py `experiment_name.json`")
+        exit()
     random.seed(0)
-    with open("./experiment.json", "r") as f:
+    with open(sys.argv[1], "r") as f:
         config = json.load(f)
     setup(config)
