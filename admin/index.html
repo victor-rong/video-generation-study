@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset = utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- <link rel = "stylesheet" type = "text/css" href = "bootstrap/css/bootstrap.min.css"> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>Text-to-4D Survey Results</title>
+</head>
+
+<body>
+    <script src="../admin/info.js"></script>
+    <script src="../assets/info.js"></script>
+    <script src="main.js" type="module"></script>
+    <div class="container-fluid text-center">
+        <h3>
+            File
+        </h3>
+        <div class="form-group">
+            <input type="file" id="file">
+            <button id="submitFile" type="button" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+    <div class="container-fluid text-center">
+        <h3>
+            Results
+        </h3>
+        <div>
+            Entries given are (ratio, p-value) where ratio refers to the ratio of users who chose the row label method and p-value refers to the probability of the null hypothesis that evaluator's choice is 50/50.
+        </div>
+        <div id="placeholder" class="container-fluid text-center">
+            <table id="table" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">AQ</th>
+                        <th scope="col">SQ</th>
+                        <th scope="col">MQ</th>
+                        <th scope="col">TA</th>
+                        <th scope="col">OP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Baseline</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div hidden id="detailed" class="container-fluid text-center">
+            <div>
+                <button disabled id="prevTop" type="button" class="btn btn-primary"> Previous</button>
+                <button id="nextTop" type="button" class="btn btn-primary">Next</button>
+            </div>
+            <br>
+            <div class="progress">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+            <br>
+            <div id="videoQuestion" class="form-group">
+                <h3 id="videoTitle">Question 0 of 28</h3>
+                <br>
+                <div class="container-fluid">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <video id="video0" controls autoplay muted loop>
+                                <source id="videoSource0" src="..\assets\0\0.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="gtVideo0"></div>
+                        </div>
+                        <div class="col-md-auto">
+                            <video id="video1" controls autoplay muted loop>
+                                <source id="videoSource1" src="..\assets\1\0.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="gtVideo1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="prompt"><b>Prompt:</b> prompt_text</div>
+                <div class="container-fluid text-center">
+                    <div class="container-fluid">
+                        Choose the video which you prefer according to each of the following criteria:
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-sm-6 text-center">
+                                <b>Appearance Quality</b>
+                            </div>
+                            <div id="AQ0" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div id="AQ1" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-6 text-center">
+                                <b>3D Structure Quality</b>
+                            </div>
+                            <div id="SQ0" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div id="SQ1" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-6 text-center">
+                                <b>Motion Quality</b>
+                            </div>
+                            <div id="MQ0" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div id="MQ1" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-6 text-center">
+                                <b>Text Alignment</b>
+                            </div>
+                            <div id="TA0" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div id="TA1" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-6 text-center">
+                                <b>Overall Preference</b>
+                            </div>
+                            <div id="OP0" class="col-sm-3 text-center">
+                                0
+                            </div>
+                            <div id="OP1" class="col-sm-3 text-center">
+                                0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div>
+                <button disabled id="prevBottom" type="button" class="btn btn-primary"> Previous</button>
+                <button id="nextBottom" type="button" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

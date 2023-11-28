@@ -1,0 +1,20 @@
+{
+  "name": "survey",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "node ./build.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "sync-mysql": "^3.0.1",
+    "timeme.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "js-stats": "^1.0.5"
+  }
+}

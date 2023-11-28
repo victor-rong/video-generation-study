@@ -1,0 +1,5 @@
+{
+    "dir": "example",
+    "method": "ours",
+    "comparisons": ["mav3d", "ours_w_hexplane", "ours_wo_hybrid_sds", "ours_wo_sds", "ours_wo_sds_vsd", "ours_wo_vsd"] 
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <!-- <link rel = "stylesheet" type = "text/css" href = "bootstrap/css/bootstrap.min.css"> -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <title>Text-to-4D Survey</title>
+    </head>
+    <body>
+        <script src="timeme.min.js"></script>
+        <script src="../assets/info.js"></script>
+        <script src="main.js" type="module"></script>
+        <div class="container-fluid">
+            <h1 class="text-center">Text-to-4D Survey</h1>
+            <h3 class="text-center alert alert-danger" role="alert" id="jscheck">The survey will not function properly without Javascript. Please make sure that it is enabled.</h3>
+            <form class="container-fluid text-center">
+                <div class="container-fluid text-center w-75">
+                    <div class="text-left">
+                        You will be presented with pairs of videos that have been generated based on a provided text prompt. For each pair of videos, please indicate your preference based on the following criteria:
+                        <ul>
+                            <li>
+                                <b>Appearance Quality:</b> Evaluate the clarity and visual appeal of the scene as it appears from any particular viewpoint (ignoring, e.g., inconsistencies in appearance across different viewpoints). Your assessment should focus on the appearance of the foreground object and ignore the background of the video.
+                            </li>
+                            <li>
+                                <b>3D Structure Quality:</b> Assess the detail and realism of the shape of the scene across the multiple viewpoints shown in the video.
+                            </li>
+                            <li>
+                                <b>Motion Quality:</b> Assess the realism of motion, including the amount of motion and how naturally the movements in the video are portrayed.
+                            </li>
+                            <li>
+                                <b>Text Alignment:</b> Determine how accurately each video reflects the content of the text prompt. Consider whether the key elements of the prompt are represented.
+                            </li>
+                            <li>
+                                <b>Overall Preference:</b> State your overall preference between the two videos. This is your subjective appraisal of which video, in your view, stands out as better based on appearance quality, 3D structure quality, motion quality, and text alignment, (i.e., overall quality).
+                            </li>
+                        </ul>
+                        Please note that your evaluations should be independent for each pair of videos, without being influenced by previous comparisons. Your individual responses will remain confidential and will be used solely for the purpose of this academic research.
+                        By submitting your responses, you are agreeing to participate in this study, and you acknowledge that the data collected from your evaluations may be used in our research publication.
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <button disabled id="prevTop" type="button" class="btn btn-primary"> Previous</button>
+                    <button id="nextTop" type="button" class="btn btn-primary">Next</button>
+                    <button disabled id="submitTop" type="button" class="btn btn-success">Submit</button>
+                </div>
+                <br>
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+                <br>
+                <div id="consentQuestion" class="container-fluid w-75">
+                    <h3>Consent Form</h3>
+                    <br>
+                    <div class="text-left">
+                        Your decision to participate is voluntary and you are free to withdraw at any time without any consequences. You are not required to answer any questions you do not feel comfortable answering.
+                        <br>
+                        Please ensure that you understand the following:
+                        <ul>
+                            <li>
+                                The purpose of the survey is to evaluate AI for video generation from text prompts for the purpose of improving the quality of the outputs from these systems.
+                            </li>
+                            <li>
+                                I will be asked a questionnaire consisting of comparisons between pairs of videos.
+                            </li>
+                            <li>
+                                The questionnaire takes approximately 15 minutes to complete, and will be conducted online.
+                            </li>
+                            <li>
+                                I may withdraw from the questionnaire at any time by exiting the questionnaire screen. If I choose to withdraw, all partial data collected will be discarded.
+                            </li>
+                            <li>
+                                The researchers do not foresee any risks or stresses on the participant beyond what one might experience in a typical day of work.
+                            </li>
+                            <li>
+                                The researchers also do not foresee any immediate benefits for the participant beyond what one might experience in a typical day of work.
+                            </li>
+                            <li>
+                                The results collected will help researchers develop systems for using AI models to generate videos from text prompts.
+                            </li>
+                            <li>
+                                I agree to have my responses documented and recorded digitally.
+                            </li>
+                            <li>
+                                All data collected from the questionnaire will be kept secure. Only the researchers involved in this study will have access to the information I provide. All data collected will be destroyed 5 years after publication of results.
+                            </li>
+                            <li>
+                                Data collected may be used in research journals, conferences, or other scholarly activities. In these cases, an anonymous subject identifier will be used and no identifying information will be provided to the audience.
+                            </li>
+                            <li>
+                                I am at least 18 years of age.
+                            </li>
+                            <li>
+                                I am free to ask questions about the process at any time.
+                            </li>
+                            <li>
+                                If requested, I will receive a copy of this form for my records.
+                            </li>
+                        </ul>
+                        The research study you are participating in may be reviewed for quality assurance to make sure that the required laws and guidelines are followed.
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-2">
+                            <label for="email">Email address</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" maxlength="255">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-6">
+                            <input class="form-check-input" type="checkbox" value="" id="consent">
+                            <label class="form-check-label" for="consent">
+                                I have read and agree with the statements above.
+                            </label>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+                <div hidden id="infoQuestion" class="container-fluid w-25">
+                    <h3>Basic Info</h3>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="age">Age</label>
+
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="age" placeholder="Enter age" maxlength="255">
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <label for="gender">Gender</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="gender" placeholder="Enter gender" maxlength="255">
+                        </div>
+                    </div>
+                </div>
+                <div hidden id="videoQuestion" class="form-group">
+                    <h3 id="videoTitle">Question 0 of 28</h3>
+                    <br>
+                    <div class="container-fluid">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
+                                <video id="video0" controls autoplay muted loop>
+                                    <source id="videoSource0" src="..\assets\0\0.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="col-md-auto">
+                                <video id="video1" controls autoplay muted loop>
+                                    <source id="videoSource1" src="..\assets\1\0.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="prompt"><b>Prompt:</b> prompt_text</div>
+                    <div class="container-fluid text-center">
+                        <div class="container-fluid">
+                            Choose the video which you prefer according to each of the following criteria:
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-auto text-right">
+                                <div id="AQ" class="form-control">
+                                    <div class="form-check form-check-inline">
+                                        <b>Appearance Quality:</b>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="AQ" id="AQ0" value="0">
+                                        <label class="form-check-label" for="AQ0">Left</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="AQ" id="AQ1" value="1">
+                                        <label class="form-check-label" for="AQ1">Right</label>
+                                    </div>
+                                </div>
+                                <div id="SQ" class="form-control">
+                                    <div class="form-check form-check-inline">
+                                        <b>3D Structure Quality:</b>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="SQ" id="SQ0" value="0">
+                                        <label class="form-check-label" for="SQ0">Left</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="SQ" id="SQ1" value="1">
+                                        <label class="form-check-label" for="SQ1">Right</label>
+                                    </div>
+                                </div>
+                                <div id="MQ" class="form-control">
+                                    <div class="form-check form-check-inline">
+                                        <b>Motion Quality:</b>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="MQ" id="MQ0" value="0">
+                                        <label class="form-check-label" for="MQ0">Left</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="MQ" id="MQ1" value="1">
+                                        <label class="form-check-label" for="MQ1">Right</label>
+                                    </div>
+                                </div>
+                                <div id="TA" class="form-control">
+                                    <div class="form-check form-check-inline">
+                                        <b>Text Alignment:</b>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="TA" id="TA0" value="0">
+                                        <label class="form-check-label" for="TA0">Left</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="TA" id="TA1" value="1">
+                                        <label class="form-check-label" for="TA1">Right</label>
+                                    </div>
+                                </div>
+                                <hr class="hr"/>
+                                <div id="OP" class="form-control">
+                                    <div class="form-check form-check-inline">
+                                        <b>Overall Preference:</b>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="OP" id="OP0" value="0">
+                                        <label class="form-check-label" for="OP0">Left</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="OP" id="OP1" value="1">
+                                        <label class="form-check-label" for="OP1">Right</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div hidden id="commentQuestion" class="form-group container-fluid w-75">
+                    <h3>Comments</h3>
+                    <label for="comment">[Optional] Please let us know if you have any comments or suggestions.</label>
+                    <textarea maxlength="10000" class="form-control" id="comments" rows="3"></textarea>
+                </div>
+
+                <div hidden id="thanks" class="container-fluid w-25 text-center">
+                    <h3>Thank you!</h3>
+                </div>
+
+                <br>
+                <div>
+                    <button disabled id="prevBottom" type="button" class="btn btn-primary"> Previous</button>
+                    <button id="nextBottom" type="button" class="btn btn-primary">Next</button>
+                    <button disabled id="submitBottom" type="button" class="btn btn-success">Submit</button>
+                </div>
+                <br><br>
+            </form>
+        </div>
+    </body>
+</html>
