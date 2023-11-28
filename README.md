@@ -1,6 +1,6 @@
-# Video Generation Survey
+# Video Generation User Study
 
-This repository gives a quick and easy way to make user studies comparing videos generated with AI from text prompts. It was created for **4D-fy: Text-to-4D Generation Using Hybrid Score Distillation Sampling** with text-to-4D in mind; feel free to clone and modify it to better suit your purposes.
+This repository gives a quick and easy way to make user studies comparing videos generated with AI from text prompts. It was created for **4D-fy: Text-to-4D Generation Using Hybrid Score Distillation Sampling** with text-to-4D in mind; feel free to clone and modify it to better suit your purposes. A live site built from this codebase can be found at [https://survey.lessvrong.com](https://survey.lessvrong.com).
 
 # Setup
 
