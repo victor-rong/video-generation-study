@@ -29,15 +29,15 @@ A simple json is also needed, please see `example_methods.json`.
 Once these are set up, we can run the generation script. This will create (or overwrite if it exists) the folder `./assets` containing the mp4 files so that users cannot identify their method. We can run this with the example videos and methods.
 
 ```
-    python ./scripts/main.py ./example_methods.json
+python ./scripts/main.py ./example_methods.json
 ```
 
 Deploying the survey to evaluators requires setting up a database, but the frontend can be looked at before then (clicking submit will simply not do anything). After the following two commands, the site can be accessed at `localhost:3000` in any modern browser.
 
 
 ```
-    npm install
-    npm start
+npm install
+npm start
 ```
 
 A database must be created, either locally or with a third-party service, to confidentially store the survey results. Once the database parameters are assigned in `./config.js`, please run `npm build` to create the necessary tables. Once this is done, the survey results may be collected.
